@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: rnaflowdb
+    ports:
+      - "6767:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8080:8080"
+
+
+
+volumes:
+  pgdata:
