@@ -1,8 +1,10 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
- 
 from dotenv import load_dotenv
+
+
+
 
 load_dotenv()
 
@@ -30,6 +32,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-
-        
